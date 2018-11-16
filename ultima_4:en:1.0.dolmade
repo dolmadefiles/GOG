@@ -1,0 +1,48 @@
+# Name of the Dolmade
+DOLMADE
+    Ultima™_4:_Quest_of_the_Avatar:en
+
+# The version of `cook` that must be used to build this dolmade
+VERSION
+    1.0
+
+# Docker image used as a base with VERSION defining its tag
+BASE
+    dolmades/winestable
+
+# A description of the installed software
+#DESCRIPTION
+#    TODO: please add a synopsis about the game...
+
+# Ingredients: sha256 / file name / display name / URL #1 / URL #2 / ...
+INGREDIENT
+    23693eea9f0c7cfc6e0b6400067fdbec83cb68285cf747340fc7fb9f701cdbdf
+    60f9be8788ffc5f00344d6e69a4be48ed2aa3504d08571022c440dbc9057daa4.png
+    Game Icon
+    https://images-2.gog.com/60f9be8788ffc5f00344d6e69a4be48ed2aa3504d08571022c440dbc9057daa4.png
+
+INGREDIENT
+    4187f7a5ad8275f44a543e1ac709d42160c5686dab7b5b5f32a9a88a0f05241b
+    setup_ultima_iv_-_quest_of_the_avatar_1.0_(22309).exe
+    Ultima™ 4: Quest of the Avatar
+    gog://ultima_4/en1installer0
+
+# Post-install custom packages like so
+#RUNROOT
+#    apt-get update && apt-get -y install custompkg && && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Adapt some presets, for instance when a certain windows version must be enforced
+#RUNUSER
+#    winetricks winxp
+
+# Perform installation
+RUNUSER
+    wine start "setup_ultima_iv_-_quest_of_the_avatar_1.0_(22309).exe"
+
+# Set icon for the Desktop shortcut
+ICON
+    60f9be8788ffc5f00344d6e69a4be48ed2aa3504d08571022c440dbc9057daa4.png
+
+# Set the executable if you know its name. If omitted a target selector will be launched
+#SETTARGET
+#    echo "$(find /wineprefix/ -name BSTSD.exe)"

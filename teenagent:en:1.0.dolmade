@@ -1,0 +1,48 @@
+# Name of the Dolmade
+DOLMADE
+    Teenagent:en
+
+# The version of `cook` that must be used to build this dolmade
+VERSION
+    1.0
+
+# Docker image used as a base with VERSION defining its tag
+BASE
+    dolmades/winestable
+
+# A description of the installed software
+#DESCRIPTION
+#    TODO: please add a synopsis about the game...
+
+# Ingredients: sha256 / file name / display name / URL #1 / URL #2 / ...
+INGREDIENT
+    0b0d7bdc0de8e3890ba81d04f0d487e1536408a17fd7fa71b1d55169b6167cf7
+    85f7df10e76ecd4c7b8236a39a6e11ce46b8f6ccd61982e6be5145a2a43f7dea.png
+    Game Icon
+    https://images-3.gog.com/85f7df10e76ecd4c7b8236a39a6e11ce46b8f6ccd61982e6be5145a2a43f7dea.png
+
+INGREDIENT
+    c13042f8f763d3b6f6b9939ee66c787bd6402c7edf006119af203726034eb211
+    setup_teenagent_1.0_(15595).exe
+    Teenagent
+    gog://teenagent/en1installer0
+
+# Post-install custom packages like so
+#RUNROOT
+#    apt-get update && apt-get -y install custompkg && && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Adapt some presets, for instance when a certain windows version must be enforced
+#RUNUSER
+#    winetricks winxp
+
+# Perform installation
+RUNUSER
+    wine start "setup_teenagent_1.0_(15595).exe"
+
+# Set icon for the Desktop shortcut
+ICON
+    85f7df10e76ecd4c7b8236a39a6e11ce46b8f6ccd61982e6be5145a2a43f7dea.png
+
+# Set the executable if you know its name. If omitted a target selector will be launched
+#SETTARGET
+#    echo "$(find /wineprefix/ -name BSTSD.exe)"

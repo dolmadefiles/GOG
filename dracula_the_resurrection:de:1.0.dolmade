@@ -1,0 +1,54 @@
+# Name of the Dolmade
+DOLMADE
+    Dracula_-_The_Resurrection:de
+
+# The version of `cook` that must be used to build this dolmade
+VERSION
+    1.0
+
+# Docker image used as a base with VERSION defining its tag
+BASE
+    dolmades/winestable
+
+# A description of the installed software
+#DESCRIPTION
+#    TODO: please add a synopsis about the game...
+
+# Ingredients: sha256 / file name / display name / URL #1 / URL #2 / ...
+INGREDIENT
+    9938f059fbdd65e93b0ade4867f7c8653fa11c055490335ac1891480b67e26b0
+    e9816b096bcbb8316de0757848451dc7eba13d7e8095a641627f7ddaf4d87e2b.png
+    Game Icon
+    https://images-4.gog.com/e9816b096bcbb8316de0757848451dc7eba13d7e8095a641627f7ddaf4d87e2b.png
+
+INGREDIENT
+    3d78c5b5d84756b59ac3c28623c96f6606ad67ced08f6f7f396c89b892f46cd8
+    setup_dracula_the_resurrection_german_2.1.0.5.exe
+    Dracula - The Resurrection
+    gog://dracula_the_resurrection/de1installer2
+
+INGREDIENT
+    b1884dcfbb37c0a5d63b0e5a7e643a217de7652e29248cd06482ec9630954d76
+    setup_dracula_the_resurrection_german_2.1.0.5.bin
+    Dracula - The Resurrection
+    gog://dracula_the_resurrection/de1installer3
+
+# Post-install custom packages like so
+#RUNROOT
+#    apt-get update && apt-get -y install custompkg && && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Perform installation
+RUNUSER
+    wine "setup_dracula_the_resurrection_german_2.1.0.5.exe"
+
+# Adapt some presets, for instance when a certain windows version must be enforced
+RUNUSER
+    winetricks windowmanagermanaged=n windowmanagerdecorated=n && wineserver -w
+
+# Set icon for the Desktop shortcut
+ICON
+    e9816b096bcbb8316de0757848451dc7eba13d7e8095a641627f7ddaf4d87e2b.png
+
+# Set the executable if you know its name. If omitted a target selector will be launched
+#SETTARGET
+#    echo "$(find /wineprefix/ -name BSTSD.exe)"
